@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "532220759328",
+    "project_id": "phoneauth-f9f9f",
+    "storage_bucket": "phoneauth-f9f9f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:532220759328:android:6c5a4b60ea0e72cf575b45",
+        "android_client_info": {
+          "package_name": "com.example.phonelogin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "532220759328-r9tglnamqaq0sh26251oi0r9911hud1n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB85JK5MULsPJRXBzcpS1IJOrafKk6kFKQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "532220759328-r9tglnamqaq0sh26251oi0r9911hud1n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
