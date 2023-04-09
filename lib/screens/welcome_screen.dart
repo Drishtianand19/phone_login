@@ -47,16 +47,22 @@ class WelcomeScreen extends StatelessWidget {
                 height: 50,
                 child: CustomButton(
                   text: 'Get Started',
-                  onPressed: () {
-                    ap.isSignedIn == true//when true , then fetch shared preferenced data
-                        ? Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => HomeScreen()))
-                        : Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => RegisterScreen()));
+                  onPressed: () async {
+                    if (ap.isSignedIn == true) {
+                      await ap.getDataFromSP().whenComplete(
+                            () => Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => HomeScreen(),
+                              ),
+                            ),
+                          );
+                    } else {
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => RegisterScreen()));
+                    }
                   },
                 ),
               ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:phonelogin/screens/home_screen.dart';
 import 'package:phonelogin/screens/user_info.dart';
 import 'package:phonelogin/utils/utils.dart';
 import 'package:phonelogin/widget/custom_button.dart';
@@ -26,8 +27,9 @@ class _OtpScreenState extends State<OtpScreen> {
             child: isLoading == true
                 ? const Center(
                     child: CircularProgressIndicator(
-                    color: Colors.purple,
-                  ))
+                      color: Colors.purple,
+                    ),
+                  )
                 : Center(
                     child: Padding(
                     padding: EdgeInsets.symmetric(vertical: 25, horizontal: 35),
@@ -134,6 +136,17 @@ class _OtpScreenState extends State<OtpScreen> {
         ap.checkExistingUser().then((value) async {
           if (value == true) {
             //user exists in our app
+            ap.getDataFromFirestore().then(
+                  (value) => ap.saveUserDataToSP().then(
+                        (value) => ap.setSignIn().then(
+                              (value) => Navigator.pushAndRemoveUntil(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const HomeScreen()),
+                                  (route) => false),
+                            ),
+                      ),
+                );
           } else {
             //new user
             Navigator.pushAndRemoveUntil(
