@@ -68,13 +68,13 @@ class AuthProvider extends ChangeNotifier {
   void verifyOtp(
       {required BuildContext context,
       required String verificationid,
-      required String user0tp,
+      required String userOtp,
       required Function onSuccess}) async {
     _isLoading = true;
     notifyListeners();
     try {
       PhoneAuthCredential creds = PhoneAuthProvider.credential(
-          verificationId: verificationid, smsCode: user0tp);
+          verificationId: verificationid, smsCode: userOtp);
       User? user = (await _firebaseAuth.signInWithCredential(creds)).user!;
       if (user != null) {
         _uid = user.uid;
