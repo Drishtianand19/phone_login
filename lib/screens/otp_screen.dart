@@ -69,8 +69,8 @@ class _OtpScreenState extends State<OtpScreen> {
                         length: 6,
                         showCursor: true,
                         defaultPinTheme: PinTheme(
-                            width: 6,
-                            height: 5,
+                            width: 60,
+                            height: 50,
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
                                 border:
@@ -130,7 +130,7 @@ class _OtpScreenState extends State<OtpScreen> {
     ap.verifyOtp(
       context: context,
       verificationid: widget.verificationId,
-      user0tp: userOtp,
+      userOtp: userOtp,
       onSuccess: () {
 // checking whether user exists in the database
         ap.checkExistingUser().then((value) async {
