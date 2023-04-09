@@ -5,10 +5,11 @@ import 'package:phonelogin/screens/welcome_screen.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
-WidgetsFlutterBinding.ensureInitialized();
-await Firebase.initializeApp();
-runApp ( MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(const MyApp());
 }
+
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-          ChangeNotifierProvider(create: (_)=>AuthProvider()),
+        ChangeNotifierProvider(create: (_) => AuthProvider()),
       ],
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -26,4 +27,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-

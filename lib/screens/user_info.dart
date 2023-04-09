@@ -57,7 +57,7 @@ class _UserinfoScreenState extends State<UserinfoScreen> {
                           InkWell(
                             onTap: () => selectImage(),
                             child: image == null
-                                ? CircleAvatar(
+                                ? const CircleAvatar(
                                     backgroundColor: Colors.purple,
                                     radius: 50,
                                     child: Icon(
@@ -189,21 +189,23 @@ class _UserinfoScreenState extends State<UserinfoScreen> {
         uid: "");
     if (image != null) {
       ap.saveUserDataToFirebase(
-          context: context,
-          userModel: userModel,
-          profilePic: image!,
-          onSuccess: () {
-            // once data is saved need to store it locally
-            ap.saveUserDataToSP().then(
-                  (value) => ap.setSignIn().then(
-                        (value) => Navigator.pushAndRemoveUntil(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const HomeScreen()),
-                            (route) => false),
-                      ),
-                );
-          });
+        context: context,
+        userModel: userModel,
+        profilePic: image!,
+        onSuccess: () {
+          // once data is saved need to store it locally
+          ap.saveUserDataToSP().then(
+                (value) => ap.setSignIn().then(
+                      (value) => Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const HomeScreen(),
+                          ),
+                          (route) => false),
+                    ),
+              );
+        },
+      );
     } else {
       showSnackBar(context, "Please upload your profile photo");
     }
