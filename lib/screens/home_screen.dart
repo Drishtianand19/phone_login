@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:phonelogin/provider/auth_provider.dart';
 import 'package:phonelogin/screens/welcome_screen.dart';
 import 'package:provider/provider.dart';
-
+import 'package:phonelogin/models/user_model.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 

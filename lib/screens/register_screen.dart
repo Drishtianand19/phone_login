@@ -90,7 +90,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                       borderSide: BorderSide(color: Colors.black12)),
-
                   prefixIcon: Container(
                     padding: const EdgeInsets.all(10.0),
                     child: InkWell(
@@ -151,10 +150,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
       )),
     );
   }
-  void sendPhoneNumber(){
-    final ap=Provider.of<AuthProvider>(context,listen: false);
-    String phoneNumber=phoneController.text.trim();
-    ap.signInWithPhone(context, "+${selectedCountry.phoneCode}$phoneNumber");
 
+  void sendPhoneNumber() {
+    final ap = Provider.of<AuthProvider>(context, listen: false);
+    String phoneNumber = phoneController.text.trim();
+    ap.signInWithPhone(context, "+${selectedCountry.phoneCode}$phoneNumber");
   }
 }
